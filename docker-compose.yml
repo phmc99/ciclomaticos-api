@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    command: npm run dev
+    ports:
+      - 3000:3000
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/ciclomaticos
+      - SECRET=qualquerCoisa
+      - NODE_ENV=local
+    volumes:
+      - .:/code
+
+  db:
+    container_name: db
+    image: postgres:14
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=ciclomaticos
