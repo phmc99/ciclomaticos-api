@@ -3,3 +3,8 @@ export interface ISurvey {
   description: string;
   is_published?: boolean;
 }
+
+export interface IQuestion {
+  title: string;
+  survey: string;
+}
