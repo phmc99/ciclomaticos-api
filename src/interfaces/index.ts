@@ -8,3 +8,8 @@ export interface IQuestion {
   title: string;
   survey: string;
 }
+
+export interface IOption {
+  title: string;
+  question: string;
+}
