@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, UpdateDateColumn, CreateDateColumn } from "typeorm";
 import Question from "./question";
+import SurveyResponse from "./survey-response";
 
 @Entity("survey")
 export default class Survey {
@@ -17,6 +18,9 @@ export default class Survey {
 
   @OneToMany(() => Question, (question) => question.survey, { eager: true })
   questions!: Question[];
+
+  @OneToMany(() => SurveyResponse, (response) => response.survey, { eager: true })
+  responses!: SurveyResponse[];
 
   @CreateDateColumn()
   created_at!: Date;

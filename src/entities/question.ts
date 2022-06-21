@@ -6,6 +6,7 @@ import {
   OneToMany,
 } from "typeorm";
 import Option from "./option";
+import QuestionResponse from "./question-response";
 import Survey from "./survey";
 
 @Entity("question")
@@ -21,4 +22,7 @@ export default class Question {
 
   @OneToMany(() => Option, (option) => option.question, { eager: true })
   options!: Option[];
+
+  @OneToMany(() => QuestionResponse, (response) => response.question)
+  responses!: QuestionResponse[];
 }
