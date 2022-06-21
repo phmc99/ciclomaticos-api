@@ -1,5 +1,5 @@
 export const paginateData = (data: any, page: any, perPage = 15) => {
-  page = page === NaN && page === undefined && page === null ? 1 : Number(page);
+  // page = page === NaN && page === undefined && page === null ? 1 : Number(page);
 
   const lastPage = Math.ceil(data.length / perPage);
 
